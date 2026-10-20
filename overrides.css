@@ -42,6 +42,10 @@
 .contact-links small { font: 10px var(--mono); text-transform: uppercase; letter-spacing: .08em; opacity: .6; }
 .contact-links strong { margin-top: auto; font-size: clamp(16px, 2vw, 24px); font-weight: 500; letter-spacing: -.04em; overflow-wrap: anywhere; }
 .contact-links span { font: 10px var(--mono); text-transform: uppercase; opacity: .6; }
+.contact-form { margin: 34px 0 54px; padding: 28px; background: var(--cream); color: var(--ink); }
+.contact-form-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.contact-form-heading span { font-size: clamp(25px, 3vw, 42px); letter-spacing: -.06em; }
+.contact-form-heading small { color: rgba(17, 17, 17, .6); font: 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .brand-logo { width: 31px; height: 31px; display: block; color: currentColor; }
 .brand { align-items: center; gap: 8px; }
@@ -145,6 +149,9 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .button { width: 100%; text-align: center; }
   .contact-links { grid-template-columns: 1fr; margin: 12px 0 38px; }
   .contact-links a { min-height: 118px; }
+  .contact-form { padding: 20px; margin: 24px 0 38px; }
+  .contact-form-heading { display: block; }
+  .contact-form-heading small { display: block; margin-top: 8px; }
   .booking-layout { display: block; }
   .booking-layout > div:first-child { margin-bottom: 35px; }
   .booking-card { min-height: 390px; padding: 24px; }
