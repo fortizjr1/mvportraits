@@ -239,3 +239,11 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .work-card h3 { font-size: 34px; }
   .section-pad { padding-top: 72px; padding-bottom: 72px; }
 }
+
+@media (min-width: 751px) {
+  .gallery { grid-auto-flow: row; grid-auto-rows: 300px; }
+  .gallery .work-card,
+  .gallery .work-card.tall,
+  .gallery .work-card.wide,
+  .gallery .work-card.square { grid-column: span 1; grid-row: span 1; min-height: 0; }
+}
