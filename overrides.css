@@ -105,6 +105,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 .work-card .gallery-image { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: saturate(.92); transition: transform .8s cubic-bezier(.22, 1, .36, 1), filter .3s ease; }
 .work-card[data-category="quinceaneras"] .gallery-image { object-position: center 42%; }
 .work-card[data-category="portraits"] .gallery-image { object-position: center 38%; }
+.gallery { grid-auto-flow: row dense; }
 .work-card:hover .gallery-image { transform: scale(1.06); filter: saturate(1); }
 .work-card:has(.gallery-image) { color: var(--cream); }
 .work-card:has(.gallery-image)::after { background: linear-gradient(135deg, rgba(35, 35, 35, .18), rgba(35, 35, 35, .58)); mix-blend-mode: normal; }
