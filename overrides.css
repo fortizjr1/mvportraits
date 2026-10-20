@@ -66,7 +66,7 @@
 .site-footer .brand-logo { filter: invert(1); }
 .skip-link { position: fixed; z-index: 30; top: 12px; left: 12px; padding: 10px 14px; background: var(--ink); color: var(--cream); transform: translateY(-160%); transition: transform .2s; font: 10px var(--mono); text-transform: uppercase; }
 .skip-link:focus { transform: translateY(0); }
-.site-header { position: fixed; mix-blend-mode: difference; color: #fff; transition: background .25s, padding .25s; }
+.site-header { position: absolute; mix-blend-mode: difference; color: #fff; transition: background .25s, padding .25s; }
 .site-header .brand, .site-header .site-nav a, .site-header .menu-toggle { color: #fff; }
 .site-header .brand-logo { filter: invert(1); }
 .site-header:has(.site-nav.open) { mix-blend-mode: normal; background: var(--cream); }
@@ -170,6 +170,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 /* Mobile refinements */
 @media (max-width: 750px) {
   .section-rail { display: none; }
+  .site-header { position: fixed; }
   body { overflow-x: hidden; }
   .site-header { position: absolute; }
   .site-nav { z-index: 10; min-width: 170px; border: 1px solid var(--line); }
