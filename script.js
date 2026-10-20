@@ -8,9 +8,11 @@ document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener
 
 const filters = document.querySelectorAll('.filter');
 const cards = document.querySelectorAll('.work-card');
+filters.forEach((filter) => filter.setAttribute('aria-selected', filter.classList.contains('active') ? 'true' : 'false'));
 filters.forEach((filter) => filter.addEventListener('click', () => {
   filters.forEach((item) => item.classList.remove('active'));
   filter.classList.add('active');
+  filters.forEach((item) => item.setAttribute('aria-selected', item === filter ? 'true' : 'false'));
   const selected = filter.dataset.filter;
   cards.forEach((card) => {
     const visible = selected === 'all' || card.dataset.category === selected;
@@ -19,6 +21,36 @@ filters.forEach((filter) => filter.addEventListener('click', () => {
 }));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Give each service CTA a personal prompt without requiring a separate page.
+document.querySelectorAll('.service a[href="#contact"]').forEach((link) => {
+  const title = link.closest('.service')?.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim();
+  link.addEventListener('click', () => {
+    const note = document.querySelector('.contact-form-heading small');
+    if (note && title) note.textContent = `Tell me a little about your ${title.toLowerCase()} plans.`;
+  });
+});
+
+// Lightweight gallery preview. Replace the placeholder art with final image sources later.
+const lightbox = document.querySelector('.lightbox');
+const lightboxTitle = document.querySelector('#lightbox-title');
+const lightboxKicker = document.querySelector('#lightbox-kicker');
+const lightboxClose = document.querySelector('.lightbox-close');
+cards.forEach((card) => {
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  const openLightbox = () => {
+    const title = card.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim() || 'Selected work';
+    const kicker = card.querySelector('small')?.textContent || '';
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxKicker) lightboxKicker.textContent = kicker;
+    if (lightbox && typeof lightbox.showModal === 'function') lightbox.showModal();
+  };
+  card.addEventListener('click', openLightbox);
+  card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(); } });
+});
+lightboxClose?.addEventListener('click', () => lightbox?.close());
+lightbox?.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.close(); });
 
 const railLinks = [...document.querySelectorAll('.section-rail a[data-rail]')];
 const railCurrent = document.querySelector('.section-rail-current');

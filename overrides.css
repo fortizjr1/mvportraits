@@ -64,6 +64,15 @@
 .brand { align-items: center; gap: 8px; }
 .brand i { display: block; line-height: 1; transform: translateY(1px); font-family: var(--sans); font-size: 12px; font-style: normal; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
 .site-footer .brand-logo { filter: invert(1); }
+.skip-link { position: fixed; z-index: 30; top: 12px; left: 12px; padding: 10px 14px; background: var(--ink); color: var(--cream); transform: translateY(-160%); transition: transform .2s; font: 10px var(--mono); text-transform: uppercase; }
+.skip-link:focus { transform: translateY(0); }
+.site-header { position: fixed; mix-blend-mode: difference; color: #fff; transition: background .25s, padding .25s; }
+.site-header .brand, .site-header .site-nav a, .site-header .menu-toggle { color: #fff; }
+.site-header .brand-logo { filter: invert(1); }
+.site-header:has(.site-nav.open) { mix-blend-mode: normal; background: var(--cream); }
+.site-header:has(.site-nav.open) .brand, .site-header:has(.site-nav.open) .site-nav a, .site-header:has(.site-nav.open) .menu-toggle { color: var(--ink); }
+.site-header:has(.site-nav.open) .brand-logo { filter: none; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
 
 /* Cinematic motion layer */
 html { --scroll-progress: 0; }
@@ -119,6 +128,25 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 .booking-button { width: max-content; padding: 16px 18px; background: var(--cream); color: var(--ink); text-decoration: none; font: 10px var(--mono); text-transform: uppercase; letter-spacing: .04em; transition: background .2s, color .2s; }
 .booking-button:hover { background: var(--coral); color: var(--ink); }
 .booking-button span { margin-left: 18px; font-size: 16px; }
+.next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 70px; background: var(--line); border: 1px solid var(--line); }
+.next-steps > div { min-height: 170px; padding: 19px; background: var(--cream); }
+.next-steps span { display: block; color: var(--coral); font: 10px var(--mono); }
+.next-steps strong { display: block; margin: 28px 0 8px; font-size: 18px; letter-spacing: -.04em; }
+.next-steps p { margin: 0; max-width: 200px; color: rgba(17,17,17,.6); font-size: 13px; }
+.mobile-booking-cta { display: none; }
+.lightbox { width: min(900px, calc(100% - 36px)); padding: 0; border: 0; background: var(--cream); color: var(--ink); box-shadow: 0 24px 80px #0008; }
+.lightbox::backdrop { background: #111b; backdrop-filter: blur(8px); }
+.lightbox-close { position: absolute; z-index: 2; top: 14px; right: 14px; width: 38px; height: 38px; border: 1px solid currentColor; border-radius: 50%; background: transparent; color: inherit; font-size: 25px; cursor: pointer; }
+.lightbox-art { min-height: 390px; background: linear-gradient(135deg, var(--sand), var(--olive)); }
+.lightbox-copy { padding: 26px 30px 30px; }
+.lightbox-copy small { font: 10px var(--mono); text-transform: uppercase; color: var(--coral); }
+.lightbox-copy h2 { margin: 12px 0 8px; font-size: clamp(32px, 5vw, 62px); line-height: .9; letter-spacing: -.07em; font-weight: 500; }
+.lightbox-copy p { margin: 0; color: rgba(17,17,17,.6); }
+.not-found { min-height: 100vh; display: grid; place-items: center; padding: 8vw; background: var(--ink); color: var(--cream); }
+.not-found main { max-width: 760px; }
+.not-found h1 { margin: 20px 0 25px; font-size: clamp(68px, 11vw, 150px); line-height: .86; letter-spacing: -.08em; font-weight: 500; }
+.not-found h1 em { color: var(--coral); font-family: var(--serif); }
+.not-found main > p:not(.eyebrow) { max-width: 350px; color: rgba(244,244,242,.65); margin-bottom: 30px; }
 
 /* Service cards share one neutral default and invert on hover. */
 .service,
@@ -177,6 +205,13 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .booking-layout > div:first-child { margin-bottom: 35px; }
   .booking-card { min-height: 390px; padding: 24px; }
   .booking-button { width: 100%; text-align: center; }
+  .next-steps { grid-template-columns: 1fr; margin-top: 45px; }
+  .next-steps > div { min-height: 130px; }
+  .next-steps strong { margin-top: 18px; }
+  .mobile-booking-cta { position: fixed; z-index: 12; right: 14px; bottom: 14px; left: 14px; display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; background: var(--ink); color: var(--cream); box-shadow: 0 8px 24px #0004; text-decoration: none; font: 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+  .mobile-booking-cta span { font-size: 17px; }
+  .lightbox-art { min-height: 270px; }
+  .lightbox-copy { padding: 23px; }
   .site-footer p { line-height: 1.5; }
 }
 
