@@ -200,6 +200,10 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .gallery { grid-template-columns: 1fr 1fr; }
   .work-card { min-width: 0; }
   .work-card .gallery-image { object-position: center center; }
+  .work-card .placeholder-label { display: none; }
+  .work-card > div { min-width: 0; max-width: 100%; }
+  .work-card small { display: block; margin-bottom: 7px; }
+  .work-card h3 { margin-top: 0; overflow-wrap: anywhere; }
   .work-card h3 { font-size: clamp(25px, 8vw, 36px); }
   .service { min-height: 265px; padding: 23px; }
   .service h3 { font-size: clamp(40px, 13vw, 58px); }
