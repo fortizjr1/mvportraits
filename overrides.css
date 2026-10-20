@@ -191,7 +191,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .hero-copy { padding-top: 30px; }
   .hero h1 { max-width: 100%; font-size: clamp(62px, 19vw, 112px); }
   .hero-bottom { align-items: flex-start; }
-  .art-hero { z-index: 1; width: 58%; height: 38%; right: -4vw; opacity: .5; }
+  .art-hero { z-index: 1; width: 58%; height: 40%; right: -4vw; bottom: 8%; opacity: .5; }
   .hero-copy, .hero-stamp { z-index: 2; }
   .hero-stamp { font-size: 9px; }
   .work .section-head > p { max-width: 100%; margin: 14px 0 0; padding-bottom: 18px; font-size: 15px; line-height: 1.4; }
