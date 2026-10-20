@@ -92,6 +92,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 .hero-booking { display: inline-flex; align-items: center; gap: 18px; padding: 17px 19px; background: var(--coral); color: var(--ink); text-decoration: none; font: 10px var(--mono); text-transform: uppercase; letter-spacing: .04em; transition: background .2s, transform .2s; }
 .hero-booking span { font-size: 17px; }
 .hero-booking:hover { background: var(--cream); transform: translateY(-3px); }
+.mobile-booking-cta { display: none; }
 .hero-art { animation: hero-art-in 1.2s cubic-bezier(.22, 1, .36, 1) .2s both, hero-float 8s ease-in-out 1.6s infinite; }
 .hero-stamp { animation: fade-up .8s ease .85s both; }
 .reveal { opacity: 0; transform: translateY(38px); transition: opacity .9s ease, transform .9s cubic-bezier(.22, 1, .36, 1); }
@@ -176,6 +177,8 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .art-hero { z-index: 1; width: 66%; height: 38%; right: -10vw; bottom: 2%; opacity: .42; }
   .hero-copy, .hero-stamp { z-index: 2; }
   .hero-stamp { font-size: 9px; }
+  .mobile-booking-cta { position: fixed; z-index: 12; right: 14px; bottom: 14px; left: 14px; display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; background: var(--coral); color: var(--ink); box-shadow: 0 8px 24px #0004; text-decoration: none; font: 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+  .mobile-booking-cta span { font-size: 17px; }
   .work .section-head > p { max-width: 100%; margin: 14px 0 0; padding-bottom: 18px; font-size: 15px; line-height: 1.4; }
   .filters { flex-wrap: wrap; }
   .filter { min-height: 38px; }
