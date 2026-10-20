@@ -101,6 +101,8 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 .reveal.is-visible .work-card:nth-child(4), .reveal.is-visible .contact-links a:nth-child(4) { transition-delay: .24s; }
 .work-card::after { transition: transform .7s cubic-bezier(.22, 1, .36, 1); transform: translateX(-12%) scale(1.15); }
 .work-card:hover::after { transform: translateX(4%) scale(1.25); }
+.work-card .gallery-image { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.92); transition: transform .8s cubic-bezier(.22, 1, .36, 1), filter .3s ease; }
+.work-card:hover .gallery-image { transform: scale(1.06); filter: saturate(1); }
 .work-card::before { content: "↗"; position: absolute; z-index: 3; top: 16px; right: 18px; width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; opacity: 0; transform: translate(-8px, 8px) rotate(-25deg); transition: opacity .3s, transform .3s; }
 .work-card:hover::before { opacity: .8; transform: translate(0, 0) rotate(0); }
 
@@ -138,6 +140,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
 .lightbox::backdrop { background: #111b; backdrop-filter: blur(8px); }
 .lightbox-close { position: absolute; z-index: 2; top: 14px; right: 14px; width: 38px; height: 38px; border: 1px solid currentColor; border-radius: 50%; background: transparent; color: inherit; font-size: 25px; cursor: pointer; }
 .lightbox-art { min-height: 390px; background: linear-gradient(135deg, var(--sand), var(--olive)); }
+.lightbox-art img { display: block; width: 100%; max-height: 66vh; object-fit: contain; background: #111; }
 .lightbox-copy { padding: 26px 30px 30px; }
 .lightbox-copy small { font: 10px var(--mono); text-transform: uppercase; color: var(--coral); }
 .lightbox-copy h2 { margin: 12px 0 8px; font-size: clamp(32px, 5vw, 62px); line-height: .9; letter-spacing: -.07em; font-weight: 500; }

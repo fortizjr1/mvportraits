@@ -35,6 +35,7 @@ document.querySelectorAll('.service a[href="#contact"]').forEach((link) => {
 const lightbox = document.querySelector('.lightbox');
 const lightboxTitle = document.querySelector('#lightbox-title');
 const lightboxKicker = document.querySelector('#lightbox-kicker');
+const lightboxImage = document.querySelector('#lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
 cards.forEach((card) => {
   card.setAttribute('tabindex', '0');
@@ -42,8 +43,10 @@ cards.forEach((card) => {
   const openLightbox = () => {
     const title = card.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim() || 'Selected work';
     const kicker = card.querySelector('small')?.textContent || '';
+    const image = card.querySelector('.gallery-image');
     if (lightboxTitle) lightboxTitle.textContent = title;
     if (lightboxKicker) lightboxKicker.textContent = kicker;
+    if (lightboxImage && image) { lightboxImage.src = image.src; lightboxImage.alt = image.alt; }
     if (lightbox && typeof lightbox.showModal === 'function') lightbox.showModal();
   };
   card.addEventListener('click', openLightbox);
