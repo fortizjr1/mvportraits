@@ -71,7 +71,11 @@ const updateRail = () => {
   railLinks.forEach((link) => link.classList.toggle('active', link.dataset.rail === current.id));
   if (railCurrent) railCurrent.textContent = current.label;
 };
-window.addEventListener('scroll', updateRail, { passive: true });
+let railFrame = 0;
+window.addEventListener('scroll', () => {
+  if (railFrame) return;
+  railFrame = requestAnimationFrame(() => { updateRail(); railFrame = 0; });
+}, { passive: true });
 updateRail();
 
 // Cinematic scroll reveals that stay quiet when the visitor prefers reduced motion.
@@ -88,8 +92,13 @@ if (!reducedMotion) {
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach((section) => revealObserver.observe(section));
 
+  let progressFrame = 0;
   window.addEventListener('scroll', () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    document.documentElement.style.setProperty('--scroll-progress', `${window.scrollY / scrollable}`);
+    if (progressFrame) return;
+    progressFrame = requestAnimationFrame(() => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      document.documentElement.style.setProperty('--scroll-progress', `${window.scrollY / scrollable}`);
+      progressFrame = 0;
+    });
   }, { passive: true });
 }
