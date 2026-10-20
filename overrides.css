@@ -181,6 +181,7 @@ body::before { content: ""; position: fixed; inset: 0 auto auto 0; z-index: 20; 
   .mobile-booking-cta.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
   .mobile-booking-cta span { font-size: 17px; }
   .work .section-head > p { max-width: 100%; margin: 14px 0 0; padding-bottom: 18px; font-size: 15px; line-height: 1.4; }
+  .contact-top p { max-width: 100%; margin: 14px 0 0; text-align: left; }
   .filters { flex-wrap: wrap; }
   .filter { min-height: 38px; }
   .gallery { grid-template-columns: 1fr 1fr; }
