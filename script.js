@@ -22,15 +22,6 @@ filters.forEach((filter) => filter.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Give each service CTA a personal prompt without requiring a separate page.
-document.querySelectorAll('.service a[href="#contact"]').forEach((link) => {
-  const title = link.closest('.service')?.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim();
-  link.addEventListener('click', () => {
-    const note = document.querySelector('.contact-form-heading small');
-    if (note && title) note.textContent = `Tell me a little about your ${title.toLowerCase()} plans.`;
-  });
-});
-
 // Lightweight gallery preview. Replace the placeholder art with final image sources later.
 const lightbox = document.querySelector('.lightbox');
 const lightboxTitle = document.querySelector('#lightbox-title');
