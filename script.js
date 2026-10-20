@@ -22,6 +22,17 @@ filters.forEach((filter) => filter.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const mobileBooking = document.querySelector('.mobile-booking-cta');
+const heroSection = document.querySelector('.hero');
+const updateMobileBooking = () => {
+  if (!mobileBooking || !heroSection) return;
+  const visible = heroSection.getBoundingClientRect().bottom <= 0;
+  mobileBooking.classList.toggle('is-visible', visible);
+  mobileBooking.setAttribute('aria-hidden', String(!visible));
+};
+window.addEventListener('scroll', updateMobileBooking, { passive: true });
+updateMobileBooking();
+
 // Lightweight gallery preview. Replace the placeholder art with final image sources later.
 const lightbox = document.querySelector('.lightbox');
 const lightboxTitle = document.querySelector('#lightbox-title');
